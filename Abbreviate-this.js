@@ -27,3 +27,31 @@ Example:
 
 
 // Solution
+
+function abbreviate(string) {
+	return string.split(' ').map(function(item) {
+    
+    if (item.length < 4) {
+      return item;
+    } else if (item.indexOf(',') !== -1) {
+      let arritem = item.split('');
+      arritem.pop();
+      return i18n(arritem) + ',';
+    } else if (item.indexOf('-')) {
+      return item.split('-').map(function(a) {
+        return i18n(a);
+      }).reduce(function(a, b) {
+        return a + '-' + b;
+      });
+    } else {
+      return i18n(item);
+    }
+		
+	}).reduce(function(a, b) {
+		return a + ' ' + b;
+  });
+}
+
+function i18n(word) {
+  return word[0] + (word.length-2).toString() + word[word.length-1];
+}
