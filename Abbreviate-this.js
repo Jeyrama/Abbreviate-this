@@ -55,3 +55,5 @@ function abbreviate(string) {
 function i18n(word) {
   return word[0] + (word.length-2).toString() + word[word.length-1];
 }
+
+// or
